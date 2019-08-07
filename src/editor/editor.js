@@ -9,11 +9,31 @@ import { style } from "@material-ui/system";
 class EditorComponent extends React.Component {
   constructor() {
     super();
+    this.state = {
+      text: "",
+      title: "",
+      id: ""
+    };
   }
 
   render() {
-    return <div>Hello From the Editor</div>;
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.editorContainer}>
+        <ReactQuill value={this.state.text} onChange={this.updateBody} />
+      </div>
+    );
   }
+
+  updateBody = async val => {
+    await this.setState({ text: val });
+    this.update();
+  };
+
+  update = debounce(() => {
+    console.log("UPDATING DATABASE");
+  }, 1500);
 }
 
 export default withStyles(styles)(EditorComponent);
