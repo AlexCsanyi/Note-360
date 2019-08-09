@@ -1,6 +1,7 @@
 import React from "react";
 import SidebarComponent from "./sidebar/sidebar";
 import EditorComponent from "./editor/editor";
+import SignIn from "./signin/signIn";
 import "./App.css";
 
 const firebase = require("firebase");
@@ -11,20 +12,25 @@ class App extends React.Component {
     this.state = {
       selectedNoteIndex: null,
       selectedNote: null,
-      notes: null
+      notes: null,
+      authenticated: false
     };
   }
 
   render() {
     return (
-      <div className="app-container">
-        <SidebarComponent
-          selectedNoteIndex={this.state.selectedNoteIndex}
-          notes={this.state.notes}
-          deleteNote={this.deleteNote}
-          selectNote={this.selectNote}
-          newNote={this.newNote}
-        />
+      <div className="app-container" authenticated={this.state.authenticated}>
+        {this.props.authenticated ? (
+          <SidebarComponent
+            selectedNoteIndex={this.state.selectedNoteIndex}
+            notes={this.state.notes}
+            deleteNote={this.deleteNote}
+            selectNote={this.selectNote}
+            newNote={this.newNote}
+          />
+        ) : (
+          <SignIn />
+        )}
         {this.state.selectedNote ? (
           <EditorComponent
             selectedNote={this.state.selectedNote}
