@@ -5,7 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
@@ -27,7 +27,11 @@ class SignUp extends React.Component {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <form className={classes.form} noValidate>
+          <form
+            onSubmit={e => this.submitSignup(e)}
+            className={classes.form}
+            noValidate
+          >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -39,6 +43,7 @@ class SignUp extends React.Component {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  onChange={e => this.userTyping("firstName", e)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -50,6 +55,7 @@ class SignUp extends React.Component {
                   label="Last Name"
                   name="lastName"
                   autoComplete="lname"
+                  onChange={e => this.userTyping("lastName", e)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -61,6 +67,7 @@ class SignUp extends React.Component {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={e => this.userTyping("email", e)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -73,6 +80,7 @@ class SignUp extends React.Component {
                   type="password"
                   id="password"
                   autoComplete="current-password"
+                  onChange={e => this.userTyping("password", e)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -93,9 +101,9 @@ class SignUp extends React.Component {
             >
               Sign Up
             </Button>
-            <Grid container justify="flex-end">
+            <Grid container justify="center">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" to="/signin">
                   Already have an account? Sign in
                 </Link>
               </Grid>
@@ -105,6 +113,14 @@ class SignUp extends React.Component {
       </Container>
     );
   }
+
+  submitSignup = e => {
+    console.log("submitting");
+  };
+
+  userTyping = (type, e) => {
+    console.log(type, e);
+  };
 }
 
 export default withStyles(useStyles)(SignUp);
