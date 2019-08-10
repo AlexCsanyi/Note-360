@@ -12,13 +12,12 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import useStyles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
+const firebase = require("firebase");
 
 class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
-      firstName: null,
-      lastName: null,
       email: null,
       password: null,
       passwordConfirmation: null,
@@ -41,33 +40,9 @@ class SignUp extends React.Component {
           </Typography>
           <form onSubmit={e => this.submitSignup(e)} className={classes.form}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="fname"
-                  name="firstName"
-                  variant="outlined"
-                  required={true}
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                  onChange={e => this.userTyping("firstName", e)}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
-                  required={true}
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="lname"
-                  onChange={e => this.userTyping("lastName", e)}
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
+                  autoFocus
                   variant="outlined"
                   required={true}
                   fullWidth
@@ -103,6 +78,15 @@ class SignUp extends React.Component {
                   onChange={e => this.userTyping("passwordConfirmation", e)}
                 />
               </Grid>
+              {this.state.signupError ? (
+                <Grid container justify="center">
+                  <Grid item>
+                    <Typography className={classes.errorText} variant="body2">
+                      {this.state.signupError}
+                    </Typography>
+                  </Grid>
+                </Grid>
+              ) : null}
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
@@ -129,28 +113,15 @@ class SignUp extends React.Component {
               </Grid>
             </Grid>
           </form>
-          {this.state.signupError ? (
-            <Typography
-              className={classes.errorText}
-              component="h6"
-              variant="h6"
-            >
-              {this.state.signupError}
-            </Typography>
-          ) : null}
         </div>
       </Container>
     );
   }
 
+  formIsValid = () => this.state.password === this.state.passwordConfirmation;
+
   userTyping = (type, e) => {
     switch (type) {
-      case "firstName":
-        this.setState({ firstName: e.target.value });
-        break;
-      case "lastName":
-        this.setState({ lastName: e.target.value });
-        break;
       case "email":
         this.setState({ email: e.target.value });
         break;
@@ -167,7 +138,40 @@ class SignUp extends React.Component {
 
   submitSignup = e => {
     e.preventDefault();
-    console.log("submitting", this.state);
+
+    if (!this.formIsValid()) {
+      this.setState({ signupError: "passwords do not match!" });
+      return;
+    }
+
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then(
+        authRes => {
+          const userObj = {
+            email: authRes.user.email
+          };
+          firebase
+            .firestore()
+            .collection("users")
+            .doc(this.state.email)
+            .set(userObj)
+            .then(
+              () => {
+                this.props.history.push("/app");
+              },
+              dbError => {
+                console.log(dbError);
+                this.setState({ signupError: "Failed to add user" });
+              }
+            );
+        },
+        autherror => {
+          console.log(autherror);
+          this.setState({ signupError: "Failed to add user" });
+        }
+      );
   };
 }
 
