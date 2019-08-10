@@ -14,6 +14,18 @@ import useStyles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
 
 class SignUp extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      firstName: null,
+      lastName: null,
+      email: null,
+      password: null,
+      passwordConfirmation: null,
+      signupError: ""
+    };
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -27,18 +39,14 @@ class SignUp extends React.Component {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <form
-            onSubmit={e => this.submitSignup(e)}
-            className={classes.form}
-            noValidate
-          >
+          <form onSubmit={e => this.submitSignup(e)} className={classes.form}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="fname"
                   name="firstName"
                   variant="outlined"
-                  required
+                  required={true}
                   fullWidth
                   id="firstName"
                   label="First Name"
@@ -49,7 +57,7 @@ class SignUp extends React.Component {
               <Grid item xs={12} sm={6}>
                 <TextField
                   variant="outlined"
-                  required
+                  required={true}
                   fullWidth
                   id="lastName"
                   label="Last Name"
@@ -61,7 +69,7 @@ class SignUp extends React.Component {
               <Grid item xs={12}>
                 <TextField
                   variant="outlined"
-                  required
+                  required={true}
                   fullWidth
                   id="email"
                   label="Email Address"
@@ -73,7 +81,7 @@ class SignUp extends React.Component {
               <Grid item xs={12}>
                 <TextField
                   variant="outlined"
-                  required
+                  required={true}
                   fullWidth
                   name="password"
                   label="Password"
@@ -81,6 +89,18 @@ class SignUp extends React.Component {
                   id="password"
                   autoComplete="current-password"
                   onChange={e => this.userTyping("password", e)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required={true}
+                  fullWidth
+                  name="passwordConfirmation"
+                  label="Password Confirmation"
+                  type="password"
+                  id="password-confirmation"
+                  onChange={e => this.userTyping("passwordConfirmation", e)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -109,17 +129,45 @@ class SignUp extends React.Component {
               </Grid>
             </Grid>
           </form>
+          {this.state.signupError ? (
+            <Typography
+              className={classes.errorText}
+              component="h6"
+              variant="h6"
+            >
+              {this.state.signupError}
+            </Typography>
+          ) : null}
         </div>
       </Container>
     );
   }
 
-  submitSignup = e => {
-    console.log("submitting");
+  userTyping = (type, e) => {
+    switch (type) {
+      case "firstName":
+        this.setState({ firstName: e.target.value });
+        break;
+      case "lastName":
+        this.setState({ lastName: e.target.value });
+        break;
+      case "email":
+        this.setState({ email: e.target.value });
+        break;
+      case "password":
+        this.setState({ password: e.target.value });
+        break;
+      case "passwordConfirmation":
+        this.setState({ passwordConfirmation: e.target.value });
+        break;
+      default:
+        break;
+    }
   };
 
-  userTyping = (type, e) => {
-    console.log(type, e);
+  submitSignup = e => {
+    e.preventDefault();
+    console.log("submitting", this.state);
   };
 }
 
