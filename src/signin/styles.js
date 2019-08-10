@@ -20,6 +20,12 @@ const useStyles = theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2)
+  },
+  errorText: {
+    color: "red",
+    textAlign: "center",
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1)
   }
 });
 

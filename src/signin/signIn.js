@@ -5,7 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
@@ -14,17 +14,13 @@ import useStyles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
 
 class SignIn extends React.Component {
-  constructor(props) {
-    super(props);
-    this.authWithEmailPassword = this.authWithEmailPassword.bind(this);
-  }
-
-  authWithEmailPassword(event) {
-    event.preventDefault();
-    console.log("authed with email");
-    console.table([
-      { email: this.emailInput.value, password: this.passwordInput.value }
-    ]);
+  constructor() {
+    super();
+    this.state = {
+      email: null,
+      password: null,
+      loginError: ""
+    };
   }
 
   render() {
@@ -40,16 +36,7 @@ class SignIn extends React.Component {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form
-            className={classes.form}
-            noValidate
-            onSubmit={event => {
-              this.authWithEmailPassword(event);
-            }}
-            ref={form => {
-              this.loginForm = form;
-            }}
-          >
+          <form className={classes.form} onSubmit={e => this.submitLogin(e)}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -60,9 +47,7 @@ class SignIn extends React.Component {
               name="email"
               autoComplete="email"
               autoFocus
-              inputRef={input => {
-                this.emailInput = input;
-              }}
+              onChange={e => this.userTyping("email", e)}
             />
             <TextField
               variant="outlined"
@@ -74,9 +59,7 @@ class SignIn extends React.Component {
               type="password"
               id="password"
               autoComplete="current-password"
-              inputRef={input => {
-                this.passwordInput = input;
-              }}
+              onChange={e => this.userTyping("password", e)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -91,6 +74,15 @@ class SignIn extends React.Component {
             >
               Sign In
             </Button>
+            {this.state.loginError ? (
+              <Typography
+                className={classes.errorText}
+                component="h5"
+                variant="body2"
+              >
+                The email address or password entered is incorrect
+              </Typography>
+            ) : null}
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
@@ -98,7 +90,7 @@ class SignIn extends React.Component {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link variant="body2" to="/signup">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -108,6 +100,14 @@ class SignIn extends React.Component {
       </Container>
     );
   }
+
+  userTyping = (type, e) => {
+    console.log(type, e);
+  };
+
+  submitLogin = e => {
+    console.log("submitting");
+  };
 }
 
 export default withStyles(useStyles)(SignIn);
