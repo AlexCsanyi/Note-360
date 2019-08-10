@@ -13,6 +13,8 @@ import Container from "@material-ui/core/Container";
 import useStyles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
 
+const firebase = require("firebase");
+
 class SignIn extends React.Component {
   constructor() {
     super();
@@ -83,12 +85,7 @@ class SignIn extends React.Component {
                 The email address or password entered is incorrect
               </Typography>
             ) : null}
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
+            <Grid container justify="center">
               <Grid item>
                 <Link variant="body2" to="/signup">
                   {"Don't have an account? Sign Up"}
@@ -102,11 +99,33 @@ class SignIn extends React.Component {
   }
 
   userTyping = (type, e) => {
-    console.log(type, e);
+    switch (type) {
+      case "email":
+        this.setState({ email: e.target.value });
+        break;
+      case "password":
+        this.setState({ password: e.target.value });
+        break;
+      default:
+        break;
+    }
   };
 
   submitLogin = e => {
-    console.log("submitting");
+    e.preventDefault();
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(
+        () => {
+          this.props.history.push("/app");
+        },
+        err => {
+          this.setState({ loginError: "server error" });
+          console.log(err);
+        }
+      );
   };
 }
 
