@@ -1,6 +1,7 @@
 import React from "react";
 import SidebarComponent from "../sidebar/sidebar";
 import EditorComponent from "../editor/editor";
+import ButtonAppBar from "../navbar/navbar";
 import "./App.css";
 
 const firebase = require("firebase");
@@ -18,6 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
+        <ButtonAppBar />
         <SidebarComponent
           selectedNoteIndex={this.state.selectedNoteIndex}
           notes={this.state.notes}
@@ -47,10 +49,21 @@ class App extends React.Component {
           data["id"] = _doc.id;
           return data;
         });
-        console.log(notes);
         this.setState({ notes: notes });
       });
   };
+
+  /*
+  componentDidUpdate = () => {
+    firebase.auth().onAuthStateChanged( async user => {
+      if(!user) {
+        this.props.history.push('/signin')
+      } else {
+        await firebase.firestore
+      }
+    })
+  }
+  */
 
   selectNote = (note, index) => {
     this.setState({ selectedNoteIndex: index, selectedNote: note });
