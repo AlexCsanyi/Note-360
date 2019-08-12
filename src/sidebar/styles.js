@@ -30,7 +30,7 @@ const styles = theme => ({
   sidebarContainer: {
     marginTop: "0px",
     width: "300px",
-    height: "100%",
+    height: "89%",
     boxSizing: "border-box",
     float: "left",
     overflowY: "scroll",

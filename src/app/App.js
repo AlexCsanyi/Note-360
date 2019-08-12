@@ -4,6 +4,7 @@ import EditorComponent from "../editor/editor";
 import "./App.css";
 import styles from "./styles";
 import { Button, withStyles } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 
 const firebase = require("firebase");
 
@@ -13,7 +14,8 @@ class App extends React.Component {
     this.state = {
       selectedNoteIndex: null,
       selectedNote: null,
-      notes: null
+      notes: null,
+      user: ""
     };
   }
 
@@ -29,6 +31,11 @@ class App extends React.Component {
           selectNote={this.selectNote}
           newNote={this.newNote}
         />
+        <Avatar className={classes.loggedInUser}>
+          You are logged in as:
+          <br />
+          {this.state.user}
+        </Avatar>
         <Button
           variant="contained"
           color="secondary"
@@ -57,13 +64,17 @@ class App extends React.Component {
         firebase
           .firestore()
           .collection("notes")
+          .where("user", "==", firebase.auth().currentUser.email)
           .onSnapshot(async serverUpdate => {
             const notes = serverUpdate.docs.map(_doc => {
               const data = _doc.data();
               data["id"] = _doc.id;
               return data;
             });
-            await this.setState({ notes: notes });
+            await this.setState({
+              notes: notes,
+              user: firebase.auth().currentUser.email
+            });
           });
       }
     });
@@ -93,7 +104,8 @@ class App extends React.Component {
       .update({
         title: noteObj.title,
         body: noteObj.body,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        user: firebase.auth().currentUser.email
       });
   };
 
@@ -108,7 +120,8 @@ class App extends React.Component {
       .add({
         title: note.title,
         body: note.body,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        user: firebase.auth().currentUser.email
       });
     const newID = newFromDB.id;
     await this.setState({ notes: [...this.state.notes, note] });
