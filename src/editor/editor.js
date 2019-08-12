@@ -4,6 +4,7 @@ import debounce from "../helpers";
 import BorderColorIcon from "@material-ui/icons/BorderColor";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles";
+import Typography from "@material-ui/core/Typography";
 
 class EditorComponent extends React.Component {
   constructor() {
@@ -11,7 +12,8 @@ class EditorComponent extends React.Component {
     this.state = {
       text: "",
       title: "",
-      id: ""
+      id: "",
+      update: ""
     };
   }
 
@@ -19,7 +21,8 @@ class EditorComponent extends React.Component {
     this.setState({
       text: this.props.selectedNote.body,
       title: this.props.selectedNote.title,
-      id: this.props.selectedNote.id
+      id: this.props.selectedNote.id,
+      update: this.props.selectedNote.timestamp.toDate()
     });
   };
 
@@ -28,7 +31,8 @@ class EditorComponent extends React.Component {
       this.setState({
         text: this.props.selectedNote.body,
         title: this.props.selectedNote.title,
-        id: this.props.selectedNote.id
+        id: this.props.selectedNote.id,
+        update: this.props.selectedNote.timestamp.toDate()
       });
     }
   };
@@ -39,6 +43,13 @@ class EditorComponent extends React.Component {
     return (
       <div className={classes.editorContainer}>
         <BorderColorIcon className={classes.editIcon} />
+        <Typography
+          value={this.state.update}
+          className={classes.upDate}
+          variant="body2"
+        >
+          Last update: {this.state.update.toString()}
+        </Typography>
         <input
           className={classes.titleInput}
           placeholder="Note title..."
@@ -63,7 +74,8 @@ class EditorComponent extends React.Component {
   update = debounce(() => {
     this.props.noteUpdate(this.state.id, {
       title: this.state.title,
-      body: this.state.text
+      body: this.state.text,
+      update: this.state.update
     });
   }, 1500);
 }

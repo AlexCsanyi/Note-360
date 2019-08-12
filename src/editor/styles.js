@@ -27,6 +27,12 @@ const styles = theme => ({
   editorContainer: {
     height: "100%",
     boxSizing: "border-box"
+  },
+  upDate: {
+    position: "absolute",
+    right: "5px",
+    top: "17px",
+    color: "white"
   }
 });
 
