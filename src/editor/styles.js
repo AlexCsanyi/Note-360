@@ -21,10 +21,8 @@ const styles = theme => ({
   editIcon: {
     position: "absolute",
     left: "310px",
-    top: "77px",
-    color: "white",
-    width: "10",
-    height: "10"
+    top: "11px",
+    color: "white"
   },
   editorContainer: {
     height: "100%",

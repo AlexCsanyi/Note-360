@@ -1,8 +1,9 @@
 import React from "react";
 import SidebarComponent from "../sidebar/sidebar";
 import EditorComponent from "../editor/editor";
-import ButtonAppBar from "../navbar/navbar";
 import "./App.css";
+import styles from "./styles";
+import { Button, withStyles } from "@material-ui/core";
 
 const firebase = require("firebase");
 
@@ -17,9 +18,10 @@ class App extends React.Component {
   }
 
   render() {
+    const { classes } = this.props;
+
     return (
       <div className="app-container">
-        <ButtonAppBar />
         <SidebarComponent
           selectedNoteIndex={this.state.selectedNoteIndex}
           notes={this.state.notes}
@@ -27,6 +29,14 @@ class App extends React.Component {
           selectNote={this.selectNote}
           newNote={this.newNote}
         />
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={this.signOut}
+          className={classes.signOutBtn}
+        >
+          Sign Out
+        </Button>
         {this.state.selectedNote ? (
           <EditorComponent
             selectedNote={this.state.selectedNote}
@@ -39,27 +49,33 @@ class App extends React.Component {
     );
   }
 
-  componentDidMount = () => {
-    firebase
-      .firestore()
-      .collection("notes")
-      .onSnapshot(serverUpdate => {
-        const notes = serverUpdate.docs.map(_doc => {
-          const data = _doc.data();
-          data["id"] = _doc.id;
-          return data;
-        });
-        this.setState({ notes: notes });
-      });
+  componentWillMount = () => {
+    firebase.auth().onAuthStateChanged(async user => {
+      if (!user) {
+        this.props.history.push("/signin");
+      } else {
+        firebase
+          .firestore()
+          .collection("notes")
+          .onSnapshot(async serverUpdate => {
+            const notes = serverUpdate.docs.map(_doc => {
+              const data = _doc.data();
+              data["id"] = _doc.id;
+              return data;
+            });
+            await this.setState({ notes: notes });
+          });
+      }
+    });
   };
 
   /*
-  componentDidUpdate = () => {
+  componentWillMount = () => {
     firebase.auth().onAuthStateChanged( async user => {
       if(!user) {
         this.props.history.push('/signin')
       } else {
-        await firebase.firestore
+        await firebase.firestore.collection.where('users', 'array-contains', user.email)
       }
     })
   }
@@ -127,6 +143,10 @@ class App extends React.Component {
       .doc(note.id)
       .delete();
   };
+
+  signOut = () => {
+    firebase.auth().signOut();
+  };
 }
 
-export default App;
+export default withStyles(styles)(App);
