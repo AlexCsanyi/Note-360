@@ -22,7 +22,9 @@ class EditorComponent extends React.Component {
       text: this.props.selectedNote.body,
       title: this.props.selectedNote.title,
       id: this.props.selectedNote.id,
-      update: this.props.selectedNote.timestamp.toDate()
+      update: this.props.selectedNote.timestamp
+        ? this.props.selectedNote.timestamp.toDate()
+        : new Date()
     });
   };
 
@@ -32,7 +34,9 @@ class EditorComponent extends React.Component {
         text: this.props.selectedNote.body,
         title: this.props.selectedNote.title,
         id: this.props.selectedNote.id,
-        update: this.props.selectedNote.timestamp.toDate()
+        update: this.props.selectedNote.timestamp
+          ? this.props.selectedNote.timestamp.toDate()
+          : new Date()
       });
     }
   };
