@@ -1,39 +1,12 @@
 const styles = theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    height: "calc(100% - 35px)",
-    position: "absolute",
-    left: "0",
-    width: "300px",
     boxShadow: "0px 0px 2px black"
   },
-  titleInput: {
-    height: "50px",
-    boxSizing: "border-box",
-    border: "none",
-    padding: "5px",
-    fontSize: "24px",
-    width: "calc(100% - 300px)",
-    backgroundColor: "#29487d",
-    color: "white",
-    paddingLeft: "50px"
-  },
-  editIcon: {
-    position: "absolute",
-    left: "310px",
-    top: "11px",
-    color: "white"
-  },
-  editorContainer: {
-    height: "100%",
-    boxSizing: "border-box"
-  },
-  upDate: {
-    position: "absolute",
-    right: "5px",
-    top: "17px",
-    color: "white"
-  }
+  titleInput: {},
+  editIcon: {},
+  editorContainer: {},
+  upDate: {}
 });
 
 export default styles;

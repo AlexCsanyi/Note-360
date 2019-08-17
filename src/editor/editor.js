@@ -51,6 +51,7 @@ class EditorComponent extends React.Component {
           value={this.state.update}
           className={classes.upDate}
           variant="body2"
+          onChange={e => this.updateDate(e.target.value)}
         >
           Last update: {this.state.update.toString()}
         </Typography>
@@ -67,6 +68,11 @@ class EditorComponent extends React.Component {
 
   updateBody = async val => {
     await this.setState({ text: val });
+    this.update();
+  };
+
+  updateDate = async val => {
+    await this.setState({ update: val });
     this.update();
   };
 
