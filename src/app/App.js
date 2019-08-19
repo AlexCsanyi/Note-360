@@ -3,7 +3,7 @@ import SidebarComponent from "../sidebar/sidebar";
 import EditorComponent from "../editor/editor";
 import "./App.css";
 import styles from "./styles";
-import { Button, withStyles } from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 
 const firebase = require("firebase");
@@ -36,14 +36,6 @@ class App extends React.Component {
           <br />
           {this.state.user}
         </Avatar>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={this.signOut}
-          className={classes.signOutBtn}
-        >
-          Sign Out
-        </Button>
         {this.state.selectedNote ? (
           <EditorComponent
             selectedNote={this.state.selectedNote}

@@ -46,21 +46,23 @@ class EditorComponent extends React.Component {
 
     return (
       <div className={classes.editorContainer}>
-        <BorderColorIcon className={classes.editIcon} />
-        <Typography
-          value={this.state.update}
-          className={classes.upDate}
-          variant="body2"
-          onChange={e => this.updateDate(e.target.value)}
-        >
-          Last update: {this.state.update.toString()}
-        </Typography>
-        <input
-          className={classes.titleInput}
-          placeholder="Note title..."
-          value={this.state.title ? this.state.title : ""}
-          onChange={e => this.updateTitle(e.target.value)}
-        />
+        <div className={classes.editorNavbar}>
+          <BorderColorIcon className={classes.editIcon} />
+          <input
+            className={classes.titleInput}
+            placeholder="Note title..."
+            value={this.state.title ? this.state.title : ""}
+            onChange={e => this.updateTitle(e.target.value)}
+          />
+          <Typography
+            value={this.state.update}
+            className={classes.upDate}
+            variant="body2"
+            onChange={e => this.updateDate(e.target.value)}
+          >
+            Last update: {this.state.update.toString()}
+          </Typography>
+        </div>
         <ReactQuill value={this.state.text} onChange={this.updateBody} />
       </div>
     );

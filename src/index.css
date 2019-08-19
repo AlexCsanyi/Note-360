@@ -7,6 +7,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#note-360 {
+  height: 100%;
+  width: 100%;
+}
+
+.SidebarComponent-sidebarContainer-6 {
+  width: 15%;
+}
+
+.EditorComponent-editorContainer-110 {
+  width: 85%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

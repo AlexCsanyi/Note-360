@@ -2,7 +2,24 @@ html,
 body {
   height: 100vh;
   width: 100%;
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.quill {
+  height: 100%;
+}
+
+.ql-toolbar {
+  background-color: #eaecec;
+}
+.ql-editor {
+  cursor: text;
+  width: 100%;
 }
