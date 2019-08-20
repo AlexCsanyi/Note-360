@@ -47,7 +47,6 @@ class EditorComponent extends React.Component {
     return (
       <div className={classes.editorContainer}>
         <div className={classes.editorNavbar}>
-          <BorderColorIcon className={classes.editIcon} />
           <input
             className={classes.titleInput}
             placeholder="Note title..."

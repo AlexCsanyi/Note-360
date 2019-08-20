@@ -4,6 +4,8 @@ import styles from "./styles";
 import List from "@material-ui/core/List";
 import { Divider, Button } from "@material-ui/core";
 import SidebarItemComponent from "../sidebaritem/sidebarItem";
+import Chip from "@material-ui/core/Chip";
+import FaceIcon from "@material-ui/icons/Face";
 
 const firebase = require("firebase");
 
@@ -17,7 +19,7 @@ class SidebarComponent extends React.Component {
   }
 
   render() {
-    const { notes, classes, selectedNoteIndex } = this.props;
+    const { user, notes, classes, selectedNoteIndex } = this.props;
 
     if (notes) {
       return (
@@ -64,6 +66,7 @@ class SidebarComponent extends React.Component {
               );
             })}
           </List>
+          <Chip icon={<FaceIcon />} label={user} className={classes.chip} />
           <Button
             variant="contained"
             color="secondary"

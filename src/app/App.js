@@ -27,6 +27,7 @@ class App extends React.Component {
           deleteNote={this.deleteNote}
           selectNote={this.selectNote}
           newNote={this.newNote}
+          user={this.state.user}
         />
         {this.state.selectedNote ? (
           <EditorComponent

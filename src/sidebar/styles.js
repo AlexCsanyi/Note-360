@@ -5,8 +5,19 @@ const styles = theme => ({
   },
   newChatBtn: {},
   newNoteBtn: {},
-  sidebarContainer: {},
+  sidebarContainer: {
+    width: "15%",
+    marginTop: "1%",
+    paddingLeft: "1%",
+    paddingRight: "1%",
+    "@media only screen and (max-width: 768px)": {
+      width: "100%",
+      height: "40%",
+      overflowY: "scroll"
+    }
+  },
   newNoteInput: {
+    position: "sticky",
     width: "99%",
     margin: "0px",
     height: "35px",
@@ -17,7 +28,11 @@ const styles = theme => ({
       outline: "2px solid rgba(81, 203, 238, 1)"
     }
   },
-  newNoteSubmitBtn: {}
+  newNoteSubmitBtn: {},
+  chip: {
+    width: "100%",
+    marginBottom: "5px"
+  }
 });
 
 export default styles;
