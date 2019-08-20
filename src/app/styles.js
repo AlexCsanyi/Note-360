@@ -1,6 +1,10 @@
 const styles = theme => ({
   signOutBtn: {},
-  loggedInUser: {}
+  loggedInUser: {
+    position: "absolute",
+    bottom: "30px",
+    right: "30px"
+  }
 });
 
 export default styles;

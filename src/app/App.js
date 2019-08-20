@@ -4,7 +4,6 @@ import EditorComponent from "../editor/editor";
 import "./App.css";
 import styles from "./styles";
 import { withStyles } from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
 
 const firebase = require("firebase");
 
@@ -20,8 +19,6 @@ class App extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
-
     return (
       <div className="app-container">
         <SidebarComponent
@@ -31,11 +28,6 @@ class App extends React.Component {
           selectNote={this.selectNote}
           newNote={this.newNote}
         />
-        <Avatar className={classes.loggedInUser}>
-          You are logged in as:
-          <br />
-          {this.state.user}
-        </Avatar>
         {this.state.selectedNote ? (
           <EditorComponent
             selectedNote={this.state.selectedNote}

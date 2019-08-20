@@ -3,7 +3,9 @@ const styles = theme => ({
     display: "flex",
     backgroundColor: "#1e90ff",
     alignItems: "center",
-    color: "white"
+    color: "white",
+    borderTopRightRadius: "0.5em",
+    borderTopLeftRadius: "0.5em"
   },
   titleInput: {
     marginRight: "auto",
@@ -20,7 +22,7 @@ const styles = theme => ({
     paddingLeft: "17px"
   },
   editorContainer: {
-    height: "100vh"
+    height: "100%"
   },
   upDate: {
     paddingRight: "10px"

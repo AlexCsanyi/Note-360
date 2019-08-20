@@ -6,7 +6,17 @@ const styles = theme => ({
   newChatBtn: {},
   newNoteBtn: {},
   sidebarContainer: {},
-  newNoteInput: {},
+  newNoteInput: {
+    width: "99%",
+    margin: "0px",
+    height: "35px",
+    outline: "none",
+    border: "none",
+    paddingLeft: "5px",
+    "&:focus": {
+      outline: "2px solid rgba(81, 203, 238, 1)"
+    }
+  },
   newNoteSubmitBtn: {}
 });
 

@@ -22,7 +22,12 @@ class SidebarComponent extends React.Component {
     if (notes) {
       return (
         <div className={classes.sidebarContainer}>
-          <Button onClick={this.newNoteBtnClick} className={classes.newNoteBtn}>
+          <Button
+            variant="contained"
+            color={this.state.addingNote ? "secondary" : "primary"}
+            onClick={this.newNoteBtnClick}
+            className={classes.newNoteBtn}
+          >
             {this.state.addingNote ? "Cancel" : "New Note"}
           </Button>
           {this.state.addingNote ? (
@@ -34,6 +39,8 @@ class SidebarComponent extends React.Component {
                 onKeyUp={e => this.updateTitle(e.target.value)}
               />
               <Button
+                variant="contained"
+                color="primary"
                 className={classes.newNoteSubmitBtn}
                 onClick={this.newNote}
               >

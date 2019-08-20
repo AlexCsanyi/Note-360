@@ -10,10 +10,12 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
-.quill {
-  height: 100%;
+.ql-container {
+  border-bottom-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
 }
 
 .ql-toolbar {
@@ -22,4 +24,10 @@ body {
 .ql-editor {
   cursor: text;
   width: 100%;
+  min-height: 10rem;
+}
+
+.MuiButton-root {
+  width: 100%;
+  position: fixed;
 }
