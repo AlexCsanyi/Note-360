@@ -17,12 +17,11 @@ const styles = theme => ({
     paddingLeft: "10px",
     alignSelf: "flex-start",
     "@media only screen and (max-width: 768px)": {
-      alignSelf: "center",
-      textAlign: "center"
+      textAlign: "center",
+      width: "96%"
     }
   },
   editorContainer: {
-    height: "100%",
     width: "81%",
     paddingLeft: "1%",
     paddingRight: "1%",
@@ -44,7 +43,10 @@ const styles = theme => ({
     display: "flex",
     alignItems: "center",
     marginTop: "5px",
-    marginLeft: "5px"
+    marginLeft: "5px",
+    "@media only screen and (max-width: 768px)": {
+      flexDirection: "column"
+    }
   }
 });
 
