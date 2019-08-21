@@ -47,12 +47,15 @@ class EditorComponent extends React.Component {
     return (
       <div className={classes.editorContainer}>
         <div className={classes.editorNavbar}>
-          <input
-            className={classes.titleInput}
-            placeholder="Note title..."
-            value={this.state.title ? this.state.title : ""}
-            onChange={e => this.updateTitle(e.target.value)}
-          />
+          <div className={classes.inputContainer}>
+            <BorderColorIcon />
+            <input
+              className={classes.titleInput}
+              placeholder="Note title..."
+              value={this.state.title ? this.state.title : ""}
+              onChange={e => this.updateTitle(e.target.value)}
+            />
+          </div>
           <Typography
             value={this.state.update}
             className={classes.upDate}

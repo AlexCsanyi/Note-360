@@ -39,6 +39,12 @@ const styles = theme => ({
       alignSelf: "center",
       textAlign: "center"
     }
+  },
+  inputContainer: {
+    display: "flex",
+    alignItems: "center",
+    marginTop: "5px",
+    marginLeft: "5px"
   }
 });
 
