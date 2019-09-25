@@ -1,0 +1,948 @@
+/* Note 360 Landing Page v.1.1.0 Style Index
+
+1. Default and Reset styles
+- 1.1 Input Elements
+2. Global elements
+- 2.1 Header
+- 2.2 Logo
+- 2.3 Buttons
+- 2.4 Navigation
+- 2.5 Social Elements
+- 2.6 Images
+3. Fonts and Headings
+4. Banner
+- 4.1 SignUp Form
+5. Content Elements
+- 5.1 Icons
+- 5.2 Parallax Elements
+- 5.3 Divider
+6. Landing Page Sections
+- 6.1 Features
+- 6.2 Testimonials
+- 6.3 Gallery
+- 6.4 Video
+- 6.5 Clients
+- 6.6 Pricing Table
+7. Footer
+
+/*------------------------------------------------------------------------------------------*/
+/* 1. Defaults & Reset of specific styles across browsers */
+/*------------------------------------------------------------------------------------------*/
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  direction: ltr;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+p {
+  line-height: 25px;
+}
+
+.row img {
+  height: auto;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  line-height: inherit;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+
+iframe {
+  border: 0 !important;
+}
+
+.parallax-window {
+  min-height: 400px;
+  background: transparent;
+}
+
+figure {
+  margin: 0;
+}
+
+#wrapper {
+  margin: 0 15px;
+  padding: 15px 0;
+  position: relative;
+}
+
+/* --------- 1.1 Input Elements ---------- */
+
+input,
+textarea {
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border-radius: 3px;
+}
+
+input {
+  height: 40px;
+  margin: 3px 0;
+  outline: none;
+  line-height: normal;
+  font-size: 14px;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  border-style: solid;
+  border-width: 2px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+select {
+  border: 1px solid #e1e1e1;
+  height: 40px;
+  padding: 5px;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+*:focus {
+  outline: none;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 2. Layout Elements */
+/*------------------------------------------------------------------------------------------*/
+
+section {
+  clear: both;
+  overflow: hidden;
+}
+
+/* Rows and Columns */
+
+.row {
+  max-width: 1245px;
+  margin: 0 auto;
+  padding: 75px 0;
+  position: relative;
+}
+
+.no-padding-bottom .row,
+.no-padding-bottom div,
+.no-padding-bottom.row {
+  padding-bottom: 0;
+}
+
+.no-padding-top.row,
+.no-padding-top div {
+  padding-top: 0;
+}
+
+.big-padding-top {
+  padding-top: 75px !important;
+}
+
+.big-padding-bottom {
+  padding-bottom: 85px !important;
+}
+
+/* Targets all elements */
+
+[class*="col-"] {
+  float: left;
+  padding: 20px;
+}
+
+#clients .col-2-3 [class*="col-"] {
+  padding: 0;
+}
+
+/* Clearfix */
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Main Widths */
+
+.col-1 {
+  width: 100%;
+}
+
+.col-2 {
+  width: 50%;
+}
+
+.col-3 {
+  width: 33.33%;
+}
+
+.col-4 {
+  width: 25%;
+}
+
+.col-5 {
+  width: 20%;
+}
+
+.col-6 {
+  width: 16.6666666667%;
+}
+
+.col-7 {
+  width: 14.2857142857%;
+}
+
+.col-8 {
+  width: 12.5%;
+}
+
+.col-9 {
+  width: 11.1111111111%;
+}
+
+.col-10 {
+  width: 10%;
+}
+
+.col-11 {
+  width: 9.09090909091%;
+}
+
+.col-12 {
+  width: 8.33%;
+}
+
+.col-2-3 {
+  width: 66.66%;
+}
+
+.col-3-4 {
+  width: 75%;
+}
+
+.col-9-10 {
+  width: 90%;
+}
+
+/* Golden Ratio */
+.col-61 {
+  width: 61.8%;
+}
+
+.col-38 {
+  width: 38.2%;
+}
+
+/* --------- 2.1 Header --------- */
+
+#header {
+  height: 71px !important;
+  overflow: visible;
+  z-index: 9999;
+  width: 100%;
+  position: absolute !important;
+}
+
+#header .row {
+  padding: 0;
+}
+
+#header aside {
+  text-align: right;
+}
+
+#header ul {
+  text-align: center;
+}
+
+#header li {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+}
+
+/* --------- 2.2 Logo ---------- */
+
+#logo {
+  float: left;
+  height: 71px;
+  line-height: 66px;
+  margin-right: 15px;
+}
+
+#banner #logo h1 {
+  font-size: 28px;
+  margin-right: 10px;
+  font-weight: 900;
+  padding: 0;
+}
+
+#logo h2 {
+  font-size: 18px;
+  padding: 0;
+}
+
+#logo img {
+  max-height: 22px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+#navigation-logo {
+  display: none;
+}
+
+.nav-solid #logo #banner-logo {
+  display: none;
+}
+
+.nav-solid #logo #navigation-logo {
+  display: inline-block;
+}
+
+/* --------- 2.3 Buttons ---------- */
+
+.call-to-action {
+  padding: 35px 0 35px 0;
+}
+
+/*Style*/
+
+.button {
+  font-size: 16px;
+  margin: 35px 0;
+  padding: 11px 16px;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  display: inline-block;
+  border-width: 3px;
+  border-style: solid;
+}
+
+/* --------- 2.4 Navigation ---------- */
+
+#header {
+  font-size: 13px;
+}
+
+#header aside {
+  float: right;
+}
+
+#header nav ul {
+  text-transform: uppercase;
+}
+
+#header nav a {
+  height: 71px;
+  line-height: 71px;
+  display: block;
+  padding: 0 10px;
+}
+
+#header nav a:hover {
+  opacity: 0.6;
+}
+
+/*Navigation Solid*/
+
+#header.nav-solid [class*="col-"] {
+  padding: 0 20px;
+}
+
+#header.nav-solid {
+  background: #fff;
+  box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.2);
+  position: fixed !important;
+  left: 0;
+}
+
+#header.nav-solid nav a {
+  border-bottom: 3px solid;
+  border-color: #fff;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+#header.nav-solid nav a:hover {
+  opacity: 1;
+}
+
+/* Social Elements when Solid*/
+
+#header.nav-solid .social-icons a {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  opacity: 0.5;
+}
+
+#header.nav-solid .social-icons a:hover {
+  opacity: 1;
+  color: #e4473c;
+}
+
+/* Responsive Nav Styling */
+
+#nav-trigger {
+  display: none;
+  text-align: right;
+}
+
+#nav-trigger span {
+  display: inline-block;
+  width: 38px;
+  height: 71px;
+  color: #111;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 22px;
+  text-align: center;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  line-height: 66px;
+}
+
+#nav-trigger span:hover,
+.nav-solid #nav-trigger span.open:hover,
+.nav-solid #nav-trigger span:hover {
+  opacity: 0.6;
+}
+
+#nav-trigger span.open,
+#nav-trigger span.open:hover {
+  color: #111;
+}
+
+.nav-solid #nav-trigger span.open:hover {
+  color: #999;
+}
+
+.nav-solid #nav-trigger span {
+  color: #999;
+  opacity: 1;
+}
+
+nav#nav-mobile {
+  position: relative;
+  display: none;
+}
+
+nav#nav-mobile ul {
+  display: none;
+  list-style-type: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+nav#nav-mobile ul:after {
+  display: none;
+}
+
+nav#nav-mobile li {
+  margin: 0 20px;
+  float: none;
+  text-align: left;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+nav#nav-mobile li:last-child {
+  border-bottom: none;
+}
+
+.nav-solid nav#nav-mobile li {
+  border-top: 1px solid #e1e1e1;
+  border-bottom: none;
+}
+
+nav#nav-mobile a {
+  display: block;
+  padding: 12px 0;
+  color: #333;
+  width: 100%;
+  height: auto;
+  line-height: normal;
+  display: block;
+  border-bottom: none !important;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+nav#nav-mobile a:hover {
+  background: #fafafa;
+  opacity: 1;
+}
+
+/* --------- 2.5 Social Elements ---------- */
+
+#header .col-4 {
+  text-align: right;
+}
+
+.social-icons {
+  display: inline-block;
+  list-style: none;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 32px;
+  text-align: center;
+}
+
+.social-icons a:hover {
+  opacity: 0.7;
+}
+
+.social-icons span {
+  display: none;
+}
+
+#header .social-icons {
+  margin-top: 27px;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 3. Fonts */
+/*------------------------------------------------------------------------------------------*/
+
+h1 {
+  padding: 20px 0;
+}
+
+h2 {
+  padding: 14px 0;
+}
+
+h3 {
+  padding: 10px 0;
+}
+
+h4 {
+  padding: 7px 0;
+}
+
+h5 {
+  padding: 7px 0;
+}
+
+h6 {
+  padding: 7px 0;
+}
+
+/* Text Alignment */
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Section Headings */
+
+.section-heading {
+  padding: 0 0 15px 0;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  padding-top: 0;
+}
+
+.section-heading h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ccc;
+  letter-spacing: 2px;
+  padding-bottom: 0;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 4. Banner */
+/*------------------------------------------------------------------------------------------*/
+
+#banner {
+  background-size: cover;
+}
+
+#banner-content.row {
+  padding-top: 170px;
+  padding-bottom: 100px;
+}
+
+#banner h1 {
+  padding-top: 5%;
+}
+
+#banner .section-heading:before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 5px;
+  margin-top: 30px;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 5. Content Elements */
+/*------------------------------------------------------------------------------------------*/
+
+/* --------- 5.1 Icons ---------- */
+
+/*Font Icon sizes*/
+
+.fa-1x {
+  font-size: 15px !important;
+}
+
+/*Icon Block*/
+
+.icon-block {
+  position: relative;
+}
+
+.icon-block h4 {
+  font-weight: bold;
+  padding-top: 0;
+}
+
+.icon-block .icon {
+  position: absolute;
+}
+
+.icon-block p {
+  margin-top: 0;
+}
+
+/* Icon Left*/
+
+.icon-left .icon {
+  left: 15;
+}
+
+.icon-left .icon-block-description {
+  padding-left: 53px;
+}
+
+/* Icon Right */
+
+.icon-right .icon {
+  right: 15;
+}
+
+.icon-right .icon-block-description {
+  padding-right: 53px;
+}
+
+/* Icon Above */
+
+.icon-top {
+  display: block;
+}
+
+.icon-top .icon {
+  position: relative;
+  display: block;
+}
+
+.icon-top .icon-block-description {
+  padding-top: 25px;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* Responsive Elements */
+/*------------------------------------------------------------------------------------------*/
+
+/* =Media Queries for Nav
+===============================*/
+@media all and (max-width: 1024px) {
+  #nav-trigger {
+    display: block;
+  }
+
+  nav#nav-main {
+    display: none;
+  }
+
+  nav#nav-mobile {
+    display: block;
+  }
+
+  nav#nav-mobile li {
+    display: block;
+  }
+
+  #header aside {
+    display: none;
+  }
+}
+
+/* Landscape mobile & down
+===============================*/
+@media (max-width: 480px) {
+  #wrapper {
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-border,
+  #scrollUp,
+  #scrollUp:before {
+    display: none;
+  }
+
+  .row {
+    padding: 15px !important;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12,
+  .col-2-3,
+  .col-3-4,
+  .col-9-10,
+  .col-61,
+  .col-38,
+  .row {
+    width: 100%;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12,
+  .col-2-3,
+  .col-3-4,
+  .col-9-10,
+  .col-61,
+  .col-38 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /*-----------------Header Elements-----------------*/
+  #header .row {
+    padding: 0 15px !important;
+  }
+
+  #header.nav-solid [class*="col-"] {
+    padding: 0;
+  }
+
+  /*Logo*/
+  #logo h2 {
+    padding: 0;
+  }
+
+  /* Social */
+  #header aside {
+    clear: both;
+    padding: 0;
+  }
+
+  #header ul.social-icons {
+    margin-top: 0;
+  }
+
+  #banner-content.row {
+    padding-top: 85px !important;
+  }
+
+  /*-----------------Sections-----------------*/
+
+  /* Call to Action*/
+  .call-to-action {
+    padding-bottom: 25px;
+  }
+
+  /* Video */
+  .slvj-lightbox iframe,
+  .slvj-lightbox object,
+  .slvj-lightbox embed {
+    height: 270px !important;
+  }
+
+  /* Footer */
+  #landing-footer #copyright {
+    float: left;
+    width: 50%;
+  }
+
+  #landing-footer .social-icons {
+    float: right;
+    width: 50%;
+  }
+
+  /*-----------------Typography-----------------*/
+  h1 {
+    font-size: 38px;
+  }
+
+  #banner h1 {
+    font-size: 48px;
+  }
+
+  /* Hide Elements */
+  a#scrollUp {
+    display: none !important;
+  }
+}
+
+/* Mobile to Tablet Portrait
+===============================*/
+
+@media (min-width: 480px) and (max-width: 767px) {
+  #wrapper {
+    margin: 0;
+    padding: 0;
+  }
+
+  #scrollUp,
+  #scrollUp:before {
+    display: none;
+  }
+
+  .row {
+    padding: 15px 0 !important;
+  }
+
+  .col-1,
+  .col-2,
+  .col-5,
+  .col-7,
+  .col-9,
+  .col-11,
+  .col-2-3,
+  .col-3-4,
+  .col-61,
+  .col-38,
+  .row {
+    width: 100%;
+  }
+
+  .col-3,
+  .col-4,
+  .col-6,
+  .col-8,
+  .col-10,
+  .col-12 {
+    width: 50%;
+  }
+
+  /*-----------------Header Elements-----------------*/
+  #header .row {
+    padding: 0 !important;
+  }
+
+  #header aside {
+    display: inline-block;
+    position: absolute;
+    top: 35px;
+    right: 60px;
+    padding-top: 3px;
+    padding-right: 5px;
+  }
+
+  #header.nav-solid aside {
+    top: 20px;
+  }
+
+  #header aside ul {
+    margin-top: 0 !important;
+    padding-top: 6px;
+  }
+
+  #banner-content.row {
+    padding-top: 85px !important;
+  }
+
+  /*Navigation*/
+  nav#nav-mobile ul {
+    margin-left: -40px;
+    margin-right: -40px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
