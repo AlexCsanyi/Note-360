@@ -65,7 +65,12 @@ class EditorComponent extends React.Component {
             Last update: {this.state.update.toString()}
           </Typography>
         </div>
-        <ReactQuill value={this.state.text} onChange={this.updateBody} />
+        <ReactQuill
+          value={this.state.text}
+          onChange={this.updateBody}
+          modules={EditorComponent.modules}
+          formats={EditorComponent.formats}
+        />
       </div>
     );
   }
@@ -93,5 +98,46 @@ class EditorComponent extends React.Component {
     });
   }, 1500);
 }
+
+EditorComponent.modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote", "code-block"],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" }
+    ],
+    ["link", "image", "video"],
+    ["clean"]
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false
+  }
+};
+/*
+ * Quill editor formats
+ * See https://quilljs.com/docs/formats/
+ */
+EditorComponent.formats = [
+  "header",
+  "font",
+  "size",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "list",
+  "bullet",
+  "indent",
+  "link",
+  "image",
+  "video",
+  "code-block"
+];
 
 export default withStyles(styles)(EditorComponent);
