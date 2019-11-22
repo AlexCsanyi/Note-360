@@ -6,6 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import SignIn from "./signin/signIn";
 import SignUp from "./signup/signUp";
+import Landing from "./landingpage/landing";
 
 const firebase = require("firebase");
 require("firebase/firestore");
@@ -25,6 +26,7 @@ firebase.initializeApp(firebaseConfig);
 const routing = (
   <Router>
     <div id="routing-container">
+      <Route path="/landing" component={Landing} />
       <Route path="/signin" component={SignIn} />
       <Route path="/app" component={App} />
       <Route path="/signup" component={SignUp} />
