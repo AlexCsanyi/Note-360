@@ -1,0 +1,7 @@
+.iconContainer {
+  padding: 0 10%;
+  display: grid;
+  gap: 10px;
+  width: max-content;
+  height: max-content;
+}
