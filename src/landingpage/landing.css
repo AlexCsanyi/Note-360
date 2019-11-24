@@ -1,3 +1,17 @@
+#landing-container {
+  display: flex;
+}
+
 .main {
   background: url(../images/landingBg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  flex: 70%;
+}
+
+.secondary {
+  height: 100vh;
+  display: inline-block;
+  flex: 30%;
 }

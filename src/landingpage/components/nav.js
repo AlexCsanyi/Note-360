@@ -2,15 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./logo";
 
-import './nav.css'
+import "./nav.css";
 
 const Nav = props => {
   return (
     <header className="navContainer">
-      <Logo></Logo>
-      <h1>NOTE 360</h1>
+      <div id="logoContainer">
+        <Logo></Logo>
+        <h1>NOTE 360</h1>
+      </div>
       <nav>
-        <ul className="navLinks">
+        <ul>
           <li>
             <Link to="/landing">Home</Link>
           </li>

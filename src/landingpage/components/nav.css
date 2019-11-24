@@ -1,16 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Spectral:800&display=swap");
+
 .navContainer {
+  font-family: "Spectral", serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 10%;
 }
 
-.navContainer h1 {
+#logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+#logoContainer h1 {
   color: #ffffff;
+  padding-left: 10px;
 }
 
 .navContainer ul {
   list-style: none;
+  padding: 0;
 }
 
 .navContainer ul li {
@@ -21,4 +31,9 @@
 .navContainer ul li a {
   text-decoration: none;
   color: #ffffff;
+  transition: 0.4s linear;
+}
+
+.navContainer ul li a:hover {
+  color: #00c170;
 }

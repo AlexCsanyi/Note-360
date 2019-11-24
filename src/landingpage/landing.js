@@ -6,8 +6,11 @@ import "./landing.css";
 class LandingComponent extends React.Component {
   render() {
     return (
-      <div className="main">
-        <Nav></Nav>
+      <div id="landing-container">
+        <div className="main">
+          <Nav></Nav>
+        </div>
+        <div className="secondary"></div>
       </div>
     );
   }
