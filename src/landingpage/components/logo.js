@@ -1,6 +1,4 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import styles from "../styles";
 import DonutSmallIcon from "@material-ui/icons/DonutSmall";
 
 const Logo = () => {
@@ -11,4 +9,4 @@ const Logo = () => {
   return <DonutSmallIcon style={logoStyle} fontSize="large"></DonutSmallIcon>;
 };
 
-export default withStyles(styles)(Logo);
+export default Logo;

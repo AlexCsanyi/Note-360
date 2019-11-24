@@ -1,17 +1,16 @@
 import React from "react";
 import Nav from "./components/nav";
 
-import { withStyles } from "@material-ui/core/styles";
-import styles from "./styles";
+import "./landing.css";
 
 class LandingComponent extends React.Component {
   render() {
     return (
-      <div>
+      <div className="main">
         <Nav></Nav>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(LandingComponent);
+export default LandingComponent;

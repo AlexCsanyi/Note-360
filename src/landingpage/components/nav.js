@@ -1,19 +1,16 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import styles from "../styles";
-
 import { Link } from "react-router-dom";
 import Logo from "./logo";
 
-const Nav = props => {
-  const { classes } = props;
+import './nav.css'
 
+const Nav = props => {
   return (
-    <header className={classes.navContainer}>
+    <header className="navContainer">
       <Logo></Logo>
       <h1>NOTE 360</h1>
       <nav>
-        <ul className={classes.navLinks}>
+        <ul className="navLinks">
           <li>
             <Link to="/landing">Home</Link>
           </li>
@@ -29,4 +26,4 @@ const Nav = props => {
   );
 };
 
-export default withStyles(styles)(Nav);
+export default Nav;

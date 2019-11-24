@@ -1,0 +1,24 @@
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+}
+
+.navContainer h1 {
+  color: #ffffff;
+}
+
+.navContainer ul {
+  list-style: none;
+}
+
+.navContainer ul li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.navContainer ul li a {
+  text-decoration: none;
+  color: #ffffff;
+}
