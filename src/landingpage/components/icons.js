@@ -17,13 +17,25 @@ const Icons = () => {
 
   return (
     <div className="iconContainer">
-      <CreateIcon style={iconStyle} fontSize="default"></CreateIcon>
-      <ChromeReaderModeIcon
-        style={iconStyle}
-        fontSize="default"
-      ></ChromeReaderModeIcon>
-      <NoteAddIcon style={iconStyle} fontSize="default"></NoteAddIcon>
-      <DeleteIcon style={iconStyle} fontSize="default"></DeleteIcon>
+      <div>
+        <CreateIcon style={iconStyle} fontSize="default"></CreateIcon>
+        <span>Create</span>
+      </div>
+      <div>
+        <ChromeReaderModeIcon
+          style={iconStyle}
+          fontSize="default"
+        ></ChromeReaderModeIcon>
+        <span>Read</span>
+      </div>
+      <div>
+        <NoteAddIcon style={iconStyle} fontSize="default"></NoteAddIcon>
+        <span>Edit</span>
+      </div>
+      <div>
+        <DeleteIcon style={iconStyle} fontSize="default"></DeleteIcon>
+        <span>Delete</span>
+      </div>
     </div>
   );
 };

@@ -5,3 +5,31 @@
   width: max-content;
   height: max-content;
 }
+
+.iconContainer div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s linear;
+  border-radius: 20px;
+}
+
+.iconContainer div span {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #ffffff;
+  width: 60px;
+  opacity: 0;
+  transition: all 0.4s linear;
+  text-transform: uppercase;
+  transform: translateX(50%);
+}
+
+.iconContainer div:hover span {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.iconContainer div:hover {
+  background: rgba(0, 193, 112, 1);
+}
