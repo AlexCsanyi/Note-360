@@ -15,3 +15,45 @@
   display: inline-block;
   flex: 30%;
 }
+
+#secondary-text-container {
+  padding: 15px;
+}
+
+#green-subtitle {
+  color: rgba(0, 193, 112, 1);
+}
+
+#green-underline {
+  text-decoration: underline rgba(0, 193, 112, 1);
+}
+
+#secondary-bold-paragraph {
+  font-weight: bold;
+}
+
+.secondary-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+.secondary-info p {
+  margin: 0;
+}
+
+.secondary-info-title {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.secondary-info-value {
+  font-weight: bold;
+}
+
+.secondary-noMargin {
+  padding-top: 20px;
+}
+
+.secondary-noMargin p {
+  margin: 0;
+}
