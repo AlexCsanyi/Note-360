@@ -7,13 +7,14 @@
   background-size: cover;
   background-position: center;
   height: 100vh;
-  flex: 70%;
+  flex: 80%;
 }
 
 .secondary {
   height: 100vh;
   display: inline-block;
-  flex: 30%;
+  flex: 20%;
+  overflow: scroll;
 }
 
 #secondary-text-container {
@@ -30,20 +31,22 @@
 
 #secondary-bold-paragraph {
   font-weight: bold;
+  text-align: justify;
 }
 
 .secondary-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0;
+  gap: 10px;
 }
 
 .secondary-info p {
-  margin: 0;
+  margin: 0px;
 }
 
 .secondary-info-title {
   color: rgba(0, 0, 0, 0.4);
+  font-size: 22px;
 }
 
 .secondary-info-value {
@@ -51,9 +54,51 @@
 }
 
 .secondary-noMargin {
-  padding-top: 20px;
+  padding-top: 40px;
+  margin-bottom: 70px;
 }
 
 .secondary-noMargin p {
   margin: 0;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+#secondary-button-container {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 19%;
+  background: #ffffff;
+  height: 50px;
+  bottom: 0;
+}
+
+#secondary-button-container p {
+  padding-left: 15px;
+  font-size: 14px;
+  padding-right: 15px;
+}
+
+#secondary-button-container p a {
+  color: rgba(0, 193, 112, 1);
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.secondary button {
+  background: rgba(0, 193, 112, 1);
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 5px;
+  border: none;
+  margin-left: 15px;
+  width: 80px;
+}
+
+.secondary button a {
+  color: #ffffff;
+  text-decoration: none;
 }
