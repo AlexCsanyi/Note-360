@@ -17,7 +17,7 @@
   overflow: scroll;
 }
 
-#secondary-text-container {
+.secondary-text-container {
   padding: 15px;
 }
 
@@ -47,10 +47,12 @@
 .secondary-info-title {
   color: rgba(0, 0, 0, 0.4);
   font-size: 22px;
+  margin-bottom: 0;
 }
 
 .secondary-info-value {
   font-weight: bold;
+  margin-top: 0;
 }
 
 .secondary-noMargin {
