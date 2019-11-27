@@ -38,6 +38,10 @@
   color: #00c170;
 }
 
+.active {
+  color: #00c170 !important;
+}
+
 #landing-container {
   display: flex;
 }
