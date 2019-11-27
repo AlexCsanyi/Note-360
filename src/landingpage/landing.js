@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "./components/nav";
+import Logo from "./components/logo";
 import Icons from "./components/icons";
 import Footer from "./components/footer";
 import { Link } from "react-router-dom";
@@ -13,7 +13,25 @@ class LandingComponent extends React.Component {
     return (
       <div id="landing-container">
         <div className="main">
-          <Nav></Nav>
+          <header className="navContainer">
+            <div id="logoContainer">
+              <Logo></Logo>
+              <h1>NOTE 360</h1>
+            </div>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/landing">Home</Link>
+                </li>
+                <li>
+                  <Link to="/landing">Pricing</Link>
+                </li>
+                <li>
+                  <Link to="/landing">Creators</Link>
+                </li>
+              </ul>
+            </nav>
+          </header>
           <Icons></Icons>
           <Footer></Footer>
         </div>
