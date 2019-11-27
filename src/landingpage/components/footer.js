@@ -4,8 +4,6 @@ import MemoryIcon from "@material-ui/icons/Memory";
 import WbSunnyOutlinedIcon from "@material-ui/icons/WbSunnyOutlined";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
-import "./footer.css";
-
 const Footer = () => {
   const iconStyle = {
     color: "#ffffff"

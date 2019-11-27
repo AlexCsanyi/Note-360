@@ -4,8 +4,6 @@ import ChromeReaderModeIcon from "@material-ui/icons/ChromeReaderMode";
 import NoteAddIcon from "@material-ui/icons/NoteAdd";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-import "./icons.css";
-
 const Icons = () => {
   const iconStyle = {
     color: "#ffffff",
