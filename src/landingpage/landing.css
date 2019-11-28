@@ -293,10 +293,44 @@
     height: min-content;
   }
 
+  .iconContainer {
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .iconContainer div {
+    justify-content: center;
+    background: rgba(0, 193, 112, 1);
+    margin: 5px;
+  }
+
+  .iconContainer div span {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
   #footerContainer {
     position: static;
-    width: fit-content;
+    width: 100%;
     height: min-content;
+    margin-top: 70px;
+  }
+
+  .benefitsContainer li:first-child:hover:after {
+    content: "Reduces Stress!";
+  }
+
+  .benefitsContainer li:nth-of-type(2):hover:after {
+    content: "Keeps Memory Sharp!";
+  }
+
+  .benefitsContainer li:nth-of-type(3):hover:after {
+    content: "Boosts Mood!";
+  }
+
+  .benefitsContainer li:last-child:hover:after {
+    content: "Strengthens Emotional Functions!";
   }
 
   .secondary {
