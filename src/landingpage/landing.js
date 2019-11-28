@@ -7,11 +7,22 @@ import Home from "./components/home";
 import Pricing from "./pricing";
 import Creators from "./creators";
 import { Route, BrowserRouter, NavLink } from "react-router-dom";
+// import PricingBg from "../images/pricingBg.jpg";
+// import CreatorsBg from "../images/creatorsBg.jpg";
 
 import "./landing.css";
 
 class LandingComponent extends React.Component {
   render() {
+    // const navLanding = document.getElementById("navLanding");
+    // const navCreators = document.getElementById('navCreators');
+
+    // let backgroundStyle = {
+    //  background: document.getElementById("navPricing").hasClass("active")
+    //    ? `url(${PricingBg})`
+    //    : `url(${CreatorsBg})`
+    // };
+
     return (
       <div>
         <BrowserRouter>
@@ -25,17 +36,17 @@ class LandingComponent extends React.Component {
                 <nav>
                   <ul>
                     <li>
-                      <NavLink exact to="/landing">
+                      <NavLink id="navLanding" exact to="/landing">
                         Home
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink exact to="/pricing">
+                      <NavLink id="navPricing" exact to="/pricing">
                         Pricing
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink exact to="/creators">
+                      <NavLink id="navCreators" exact to="/creators">
                         Creators
                       </NavLink>
                     </li>
