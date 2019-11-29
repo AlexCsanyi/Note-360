@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import useStyles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
+import Logo from "../landingpage/components/logo";
 const firebase = require("firebase");
 
 class SignUp extends React.Component {
@@ -28,10 +29,18 @@ class SignUp extends React.Component {
   render() {
     const { classes } = this.props;
 
+    const buttonStyle = {
+      backgroundColor: "#00C170"
+    };
+
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
+          <div className={classes.logoContainer}>
+            <Logo></Logo>
+            <h1 className={classes.title}>NOTE 360</h1>
+          </div>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -42,6 +51,7 @@ class SignUp extends React.Component {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
+                  style={{ color: "#ffffff" }}
                   autoFocus
                   variant="outlined"
                   required={true}
@@ -100,15 +110,21 @@ class SignUp extends React.Component {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
               className={classes.submit}
+              style={buttonStyle}
             >
               Sign Up
             </Button>
             <Grid container justify="center">
               <Grid item>
-                <Link href="#" variant="body2" to="/signin">
-                  Already have an account? Sign in
+                <Link
+                  className={classes.link}
+                  href="#"
+                  variant="body2"
+                  to="/signin"
+                >
+                  Already have an account?{" "}
+                  <span className={classes.signIn}>Sign in</span>
                 </Link>
               </Grid>
             </Grid>
