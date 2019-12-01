@@ -1,18 +1,32 @@
+import Image from "../images/signupBg.jpg";
+
 const useStyles = theme => ({
   "@global": {
     body: {
-      backgroundColor: theme.palette.common.white
+      background: `url(${Image}) center / cover`,
+      overflow: "hidden"
     }
   },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(1),
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
   },
+  logoContainer: {
+    display: "flex",
+    justifyContent: "center",
+    padding: "10px",
+    alignItems: "center"
+  },
+  title: {
+    fontSize: "18px",
+    marginBottom: "5px",
+    textDecoration: "none"
+  },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: "#00C170"
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -26,6 +40,15 @@ const useStyles = theme => ({
     textAlign: "center",
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1)
+  },
+  link: {
+    color: "#000000",
+    textDecoration: "none"
+  },
+  signUp: {
+    color: "#00C170",
+    textTransform: "upperCase",
+    textDecoration: "underline #00C170"
   }
 });
 

@@ -37,10 +37,12 @@ class SignUp extends React.Component {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <div className={classes.logoContainer}>
-            <Logo></Logo>
-            <h1 className={classes.title}>NOTE 360</h1>
-          </div>
+          <Link className={classes.link} to="/landing">
+            <div className={classes.logoContainer}>
+              <Logo></Logo>
+              <h1 className={classes.title}>NOTE 360</h1>
+            </div>
+          </Link>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>

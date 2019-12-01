@@ -10,6 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import Logo from "../landingpage/components/logo.js";
 import useStyles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -28,10 +29,20 @@ class SignIn extends React.Component {
   render() {
     const { classes } = this.props;
 
+    const buttonStyle = {
+      backgroundColor: "#00C170"
+    };
+
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
+          <Link className={classes.link} to="/landing">
+            <div className={classes.logoContainer}>
+              <Logo></Logo>
+              <h1 className={classes.title}>NOTE 360</h1>
+            </div>
+          </Link>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -68,6 +79,7 @@ class SignIn extends React.Component {
               label="Remember me"
             />
             <Button
+              style={buttonStyle}
               type="submit"
               fullWidth
               variant="contained"
@@ -87,8 +99,9 @@ class SignIn extends React.Component {
             ) : null}
             <Grid container justify="center">
               <Grid item>
-                <Link variant="body2" to="/signup">
-                  {"Don't have an account? Sign Up"}
+                <Link className={classes.link} variant="body2" to="/signup">
+                  Don't have an account?{" "}
+                  <span className={classes.signUp}>Sign Up</span>
                 </Link>
               </Grid>
             </Grid>

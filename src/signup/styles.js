@@ -21,7 +21,8 @@ const useStyles = theme => ({
   },
   title: {
     fontSize: "18px",
-    marginBottom: "5px"
+    marginBottom: "5px",
+    textDecoration: "none"
   },
   avatar: {
     margin: theme.spacing(1),
